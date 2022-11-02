@@ -136,12 +136,48 @@ function App() {
     return <div>Something went wrong</div>;
   }
 
+  const onNextPage = () => {
+    setPage((prev) => prev + 1);
+    getAllApis(page + 1);
+  };
+
+  const onPrevPage = () => {
+    setPage((prev) => !prev < 1 && prev - 1);
+    getAllApis(page - 1);
+  };
+
   return (
-    <div className="App">
+    <div className="App flex flex-col">
       <table className="table-wrapper">
         <thead>{apis.length > 0 && renderHederRow(apis[0])}</thead>
         <tbody>{apis.map((item) => renderRow(item))}</tbody>
       </table>
+      <div className="text-white text-end w-4/5  pr-8 my-4 flex justify-around">
+        <button
+          onClick={onPrevPage}
+          className="w-10 h-10 rounded-full bg-white flex justify-center items-center"
+        >
+          <img
+            src={images.expandArrow}
+            alt="down"
+            width="24"
+            height="24"
+            className="transform rotate-90"
+          />
+        </button>
+        <button
+          onClick={onNextPage}
+          className="w-10 h-10 rounded-full bg-white flex justify-center items-center"
+        >
+          <img
+            src={images.expandArrow}
+            alt="down"
+            width="24"
+            height="24"
+            className="transform -rotate-90"
+          />
+        </button>
+      </div>
     </div>
   );
 }

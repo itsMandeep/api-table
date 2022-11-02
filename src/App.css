@@ -11,9 +11,10 @@
   border-collapse: collapse;
   border-radius: 0.5rem;
   height: 600px;
-  max-width: 80%;
+  width: 80%;
   overflow: scroll;
   display: list-item;
+  /* display: grid; */
   background: white;
   border-radius: 16px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
